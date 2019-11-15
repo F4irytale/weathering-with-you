@@ -113,7 +113,7 @@
 	</div>
 	<?php
 	include"php/config.php";
-	$sql="select * from comment order by id desc";
+	$sql="select * from comment order by id desc limit 15";
 	$res=$mySQL->query($sql);
 			while($row=$res->fetch_array())
 		{
