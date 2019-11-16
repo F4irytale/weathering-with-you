@@ -11,7 +11,7 @@
 			width: 845px;
 			margin-left: 50px;
 			border-radius: 15px;
-			background-color: #81d4fa;
+			background-color: #b3e5fc;
 			margin-bottom: 20px;
 			padding: 10px;
 </style>
