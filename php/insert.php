@@ -4,6 +4,22 @@ $time= $_POST['date'];
 $address= $_POST['address'];
 $comment= $_POST['comment'];
 $username= $_POST['username'];
+$search = array('江泽','vpn','傻逼','艹','滚','习近');
+function test($str , $array_search){
+    foreach($array_search as $value){
+       if(strstr($str , $value)!==false){
+       	 echo "<script>alert('含有敏感词，请重新输入');location='../index.php'</script>";
+           return true;
+       }
+    }
+   
+    return false;
+}
+//使用方法
+$test = test($username,$search);
+$test2 = test($comment,$search);
+
+if($test==false&&$test2==false){
 if($username==""){
 	echo "<script>alert('昵称不能为空哦');location='../index.php'</script>";
 }else{
@@ -19,5 +35,7 @@ echo "<script>alert('提交成功');location='../index.php'</script>";
 }
 
 }
+}
 
+?>
 ?>
