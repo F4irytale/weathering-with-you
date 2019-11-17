@@ -11,33 +11,62 @@
 			width: 845px;
 			margin-left: 50px;
 			border-radius: 15px;
-			background-color: #b3e5fc;
+			background-color: #81d4fa;
 			margin-bottom: 20px;
 			padding: 10px;
+		}
+	a{
+		text-decoration: none;
+	}
 </style>
 <body>
 	<div class="comment">
 <?php
 include"config.php";
-$sql="select * from comment order by id desc";
-	$res=$mySQL->query($sql);
-			while($row=$res->fetch_array())
+$page=isset($_GET['p'])? $_GET['p']:1;//定义变量由浏览器传入
+ 
+$sql = "select * from comment order by id desc limit ".($page-1) * 5 .",15 ";//查询语句，limit后的两个参数第一个是查询的起始位置，第二个是显示的数据条数
+$res=$mySQL->query($sql);
+			while($rows=$res->fetch_array())
 		{?>
 			<table style="margin: 15px;">
 		<tr>
-			<td colspan="2" style="font-size: 18px;"><?php echo $row['username']?>的愿望:</td>
+			<td colspan="2" style="font-size: 18px;"><?php echo $rows['username']?>的愿望:</td>
 			
 		</tr>
 		<tr>	
-			<td style="font-size: 15px;" colspan="2"><?php echo $row['why']?></td>
+			<td style="font-size: 15px;" colspan="2"><?php echo $rows['why']?></td>
 		</tr>
 		<tr>
-			<td style="color: #424242; font-size: 13px;">希望在<?php echo $row['time']?></td>
+			<td style="color: #424242; font-size: 13px;">希望在<?php echo $rows['time']?></td>
 			<td colspan="" style="color: #424242; font-size: 13px;"><?php echo $row['address']?>天晴</td>
 			<hr style="color: #e1f5fe">
 		</tr>
 	</table>
-<?php }?>
+	
+<?php 
+}
+$to_sql="SELECT COUNT(*)FROM comment";
+$res2=$mySQL->query($to_sql);
+$row=$res2->fetch_array();
+$count=$row[0];
+$to_pages=ceil($count/5);
+if($page<=1){
+    echo "<a style='margin-left:20px;' href='".$_SERVER['PHP_SELF']."?p=1'>上一页</a>";
+    }else{
+    echo "<a style='margin-left:20px;' href='".$_SERVER['PHP_SELF']."?p=".($page-1)."'>上一页</a>";
+}
+if ($page<$to_pages){
+    echo "<a style='margin-left:50px;' href='".$_SERVER['PHP_SELF']."?p=".($page+1)."'>下一页</a>";
+ 
+ 
+}else{
+    echo "<a style='margin-left:50px;' href='".$_SERVER['PHP_SELF']."?p=".($to_pages)."'>下一页</a>";
+
+}
+?>
+<span style="margin-left:50px;"><a href="../index.php">回首页</a></span>
+<span style="margin-left:50px;">共<?php echo $to_pages ?>页&nbsp;&nbsp;&nbsp;第<?php echo $page ?>页</span>
 </div>
 </body>
 </html>
