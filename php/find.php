@@ -31,7 +31,7 @@ $res=$mySQL->query($sql);
 		{?>
 			<table style="margin: 15px;">
 		<tr>
-			<td colspan="2" style="font-size: 18px;"><?php echo $rows['username']?>的愿望:</td>
+			<td colspan="2" style="font-size: 18px;"><?php echo $rows['username']?>的委托:</td>
 			
 		</tr>
 		<tr>	
