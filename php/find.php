@@ -23,7 +23,7 @@
 	<div class="comment">
 <?php
 include"config.php";
-$page=isset($_GET['p'])? $_GET['p']:1;//定义变量由浏览器传入
+$page=isset($_GET['p'])? $_GET['p']:2;//查看所有委托起始页
  
 $sql = "select * from comment order by id desc limit ".($page-1) * 5 .",15 ";//查询语句，limit后的两个参数第一个是查询的起始位置，第二个是显示的数据条数
 $res=$mySQL->query($sql);
