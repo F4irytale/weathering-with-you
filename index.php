@@ -138,8 +138,8 @@
 	$res2=$mySQL->query($sql2);
 	$row2=$res2->fetch_array()
 	?>
-	<span style="margin: 15px; color: #f50057">已有<?php echo $row2['count(*)']?>人提交晴天愿望</span>
-	<span  style="margin: 15px; color: #f50057"><a href="php/find.php" style="text-decoration: none;">查看所有人的晴天愿望</a></span>
+	<span style="margin: 15px; color: #f50057">已有<?php echo $row2['count(*)']?>人提交晴天委托</span>
+	<span  style="margin: 15px; color: #f50057"><a href="php/find.php" style="text-decoration: none;">查看所有人的晴天委托</a></span>
 </div>
 	
 </body>
