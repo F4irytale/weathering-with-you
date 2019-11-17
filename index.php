@@ -109,7 +109,7 @@
 	</div>
 <div class="comment">
 	<div style="margin: 10px;">
-		<h1>大家的愿望：</h1>
+		<h1>大家的委托：</h1>
 	</div>
 	<?php
 	include"php/config.php";
@@ -120,7 +120,7 @@
 	?>
 	<table style="margin: 15px;">
 		<tr>
-			<td colspan="2" style="font-size: 18px;"><?php echo $row['username']?>的愿望:</td>
+			<td colspan="2" style="font-size: 18px;"><?php echo $row['username']?>的委托:</td>
 			
 		</tr>
 		<tr>	
