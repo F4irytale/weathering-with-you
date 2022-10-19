@@ -4,7 +4,7 @@ $time= $_POST['date'];
 $address= $_POST['address'];
 $comment= $_POST['comment'];
 $username= $_POST['username'];
-$search = array('vpn','傻逼','艹','滚','<','>','script','<?php','#','alert','||','`','屏蔽词','逼','穴','or 1 = 1','成人片','毛泽东','习近平','123','*','屎','shit');
+$search = array('vpn','傻逼','艹','滚','<','>','script','<?php','#','alert','||','`','屏蔽词','逼','穴','or 1 = 1','成人片','123','*','屎','shit');
 function test($str , $array_search){
     foreach($array_search as $value){
        if(strstr($str , $value)!==false){
